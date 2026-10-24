@@ -1,0 +1,74 @@
+[
+  {
+    name: "White Fox",
+    attack_type: "Proyectiles",
+    role: "Estratega",
+    difficulty: 3,
+    description: "Ami Han, la última de las legendarias Kumiho, puede invocar su ancestral Poder de Nueve Colas para fortificarse y curar a sus aliados en el campo de batalla. Como directora tranquila y capaz de la División Tigre, ella es la columna vertebral inquebrantable de cualquier equipo, sin importar quién sea el enemigo.",
+    image:
+      "https://static.dotgg.gg/rivals/characters/white-fox-headbig.webp",
+  },
+  {
+    name: "Jubilee",
+    attack_type: "Proyectiles",
+    role: "Estratega",
+    difficulty: 4,
+    description: "Jubilation Lee tiene la capacidad mutante de generar ráfagas de plasma pirotécnico. Ella transforma la energía radiante en proyectiles vibrantes que brillan con una luz brillante y colorida. ¡Combinado con sus poderes vampíricos, cada uno de los fuegos artificiales de Jubilee es una celebración vigorizante en el campo de batalla!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/jubilee-headbig.webp",
+  },
+  {
+    name: "The Hood",
+    attack_type: "Hitscan",
+    role: "Vanguardia",
+    difficulty: 2,
+    description: "Como Hood, Parker Robbins está recorriendo el peligroso camino hacia el trono del inframundo criminal. Envuelto en un manto maldito, devora la potencia de fuego de sus enemigos, alimentando su propio poder oscuro. Cuando se transforma en su estado demoníaco completo, ¡un torrente de magia oscura arrasa con todos los que se interponen en su camino!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/the-hood-headbig.webp",
+  },
+  {
+    name: "Rogue",
+    attack_type: "Melee",
+    role: "Vanguardia",
+    difficulty: 5,
+    description: "Anna Marie posee la capacidad mutante de absorber los poderes de los demás con un toque. Su arsenal siempre adaptable de habilidades sobrehumanas ayuda a cambiar el rumbo de cualquier pelea. Después de tocar Raw Chronovium, la fuerza de Rogue alcanzó nuevas alturas, ¡lo que le permitió abrumar a los enemigos con una fuerza imparable!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/rogue-headbig.webp",
+  },
+  {
+    name: "Gorr The God Butcher",
+    attack_type: "Melee",
+    role: "Duelista",
+    difficulty: 4,
+    description: "Gorr, que empuña la palabra necrosword All-Black, es la pesadilla de todos los dioses. La carne divina que desgarra se transforma en una marea interminable de negros berserkers, que marchan para siempre a su paso. Cuando la legión impía del Dios Carnicero desciende, ¡seres tanto mortales como divinos se convierten en sacrificios bajo sus pies!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/gorr-the-god-butcher-headbig.webp",
+  },
+  {
+    name: "Black Widow",
+    attack_type: "Hitscan",
+    role: "Duelista",
+    difficulty: 4,
+    description: "Natasha Romanova es la espía más elitista del mundo en cualquier época. Su dominio del rifle de francotirador elimina objetivos a distancia, mientras que sus porras neutralizan amenazas de corto alcance. ¡Black Widow está cerrada, cargada y lista para dar una mordedura fatal!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/black-widow-headbig.webp",
+  },
+  {
+    name: "Groot",
+    attack_type: "Melee",
+    role: "Vanguardia",
+    difficulty: 2,
+    description: "Un coloso de la flora del Planeta X, el extraterrestre conocido como Groot exhibe una vitalidad mejorada y la capacidad de manipular todas las formas de vegetación. Tan robusto como un árbol imponente, Groot forja su propio camino, sirviendo como el explorador silencioso pero confiable del equipo.",
+    image:
+      "https://static.dotgg.gg/rivals/characters/groot-headbig.webp",
+  },
+  {
+    name: "Elsa Bloodstone",
+    attack_type: "Hitscan",
+    role: "Duelista",
+    difficulty: 3,
+    description: "Nacida en una línea de legendarios cazadores de monstruos, Elsa Bloodstone cuenta con una increíble destreza física y un talento innato para someter a las criaturas más espeluznantes. ¡El instinto de cazar está en su sangre y cada enemigo al que se enfrenta inevitablemente se convierte en presa atrapada en sus trampas!",
+    image:
+      "https://static.dotgg.gg/rivals/characters/elsa-bloodstone-headbig.webp",
+  },
+];
