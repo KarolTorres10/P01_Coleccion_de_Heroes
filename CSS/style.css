@@ -1,0 +1,92 @@
+/* LOGO */
+
+.logo-principal {
+  display: block;
+  width: min(520px, 100%);
+  height: auto;
+  margin: 2.5rem auto 4rem;
+}
+
+/* Navbar fijo */
+
+.navbar > .container {
+  width: 100%;
+}
+.barra-principal {
+  flex: 1;
+  align-items: center;
+  gap: .5rem;
+}
+.barra-busqueda {
+  flex: 1 1 auto;
+  max-width: 520px;
+}
+.barra-busqueda .control {
+  width: 100%;
+}
+.barra-botones {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* Cards Heroes */
+
+.heroe-card {
+  cursor: pointer;
+  height: 100%;
+  transition: transform .15s, box-shadow .15s;
+}
+.heroe-card:hover,
+.heroe-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  outline: none;
+}
+.heroe-card .image img,
+#modalContenido .image img {
+  object-fit: cover;
+}
+
+/* Mensaje de confirmación (toast) */
+
+.toast {
+  position: fixed;
+  top: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: max-content;
+  max-width: 90vw;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+}
+
+/* Formulario */
+
+#modalFormulario .modal-card {
+  width: min(560px, 94vw);
+}
+#modalFormulario textarea {
+  resize: vertical;
+}
+
+/* Pagina Detalle */
+
+.detalle-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+.detalle-encabezado .title {
+  margin-bottom: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.detalle-acciones {
+  display: flex;
+  gap: .5rem;
+  flex-shrink: 0;
+}

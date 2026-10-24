@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <title>Colección de Heroes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+    
+    <body>        
+<!-- Navbar -->
+
+        <nav class="navbar is-fixed-top is-black" role="navigation" aria-label="Barra principal">
+            <div class="container">
+                <div class="navbar-brand barra-principal">
+                    <div class="navbar-item barra-busqueda">
+                        <div class="control has-icons-left">
+                            <input id="buscador" class="input" type="search"
+                                   placeholder="Buscar por nombre, rol o tipo de ataque..."
+                                   autocomplete="off" aria-label="Buscar personaje">
+                            <span class="icon is-left">🔍</span>
+                        </div>
+                    </div>
+                    <div class="navbar-item barra-botones">
+                        <button id="btnRestablecer" class="button is-light" type="button"
+                                title="Restablecer colección" aria-label="Restablecer colección">
+                            <span class="icon">↺</span>
+                            <span class="is-hidden-mobile">Restablecer</span>
+                        </button>
+                        <button id="btnAgregar" class="button is-primary" type="button"
+                                aria-label="Agregar nuevo héroe">
+                            <span class="icon">＋</span>
+                            <span class="is-hidden-mobile">Agregar héroe</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+<!-- Main Content -->
+
+        <section class="section">
+            <div class="container">
+                <img class="logo-principal" src="https://s-stats-platform-cdn.op.gg/app-router/assets/images/marvel-rivals/logo.png?image=q_auto:good,f_webp,w_674&v=1792736371" alt="Marvel Rivals">
+                <p id="contador" class="has-text-centered mb-4"></p>
+                <div id="mainContainer" class="columns is-multiline is-6-mobile"></div>
+                <p id="sinResultados" class="notification is-warning is-light is-hidden">
+                    No se encontraron personajes.
+                </p>
+            </div>
+        </section>
+
+<!-- Mensaje de éxito -->
+
+        <div id="toast" class="notification is-success toast is-hidden" role="status"></div>
+
+<!-- Detalles -->
+
+        <div id="modalHeroe" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content" style="max-width: 480px;">
+                <div id="modalContenido"></div>
+            </div>
+            <button id="cerrarModal" class="modal-close is-large" aria-label="Cerrar"></button>
+        </div>
+ 
+<!-- Agregar Heroe -->
+
+        <div id="modalFormulario" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p id="agregarFormulario" class="modal-card-title">Agregar nuevo héroe</p>
+                    <button id="cerrarFormulario" class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+ 
+                <section class="modal-card-body">
+                    <div id="mensajeForm" class="notification is-danger is-light is-hidden" role="alert">
+                        <span id="textoErrorForm">No se puede agregar el héroe debido a un error en el formulario.</span>
+                        Revisa los campos marcados en rojo.
+                    </div>
+ 
+                    <form id="formHeroe" novalidate>
+                        <div class="field">
+                            <label class="label" for="campo-name">Nombre</label>
+                            <div class="control">
+                                <input id="campo-name" name="name" class="input" type="text"
+                                       maxlength="40" placeholder="Ej. Storm" autocomplete="off">
+                            </div>
+                            <p class="help is-danger" data-error="name"></p>
+                        </div>
+ 
+                        <div class="field">
+                            <label class="label" for="campo-attack_type">Tipo de ataque</label>
+                            <div class="control">
+                                <input id="campo-attack_type" name="attack_type" class="input" type="text"
+                                       maxlength="30" list="listaAtaques" placeholder="Ej. Proyectiles" autocomplete="off">
+                                <datalist id="listaAtaques"></datalist>
+                            </div>
+                            <p class="help is-danger" data-error="attack_type"></p>
+                        </div>
+ 
+                        <div class="field">
+                            <label class="label" for="campo-role">Rol</label>
+                            <div class="control">
+                                <input id="campo-role" name="role" class="input" type="text"
+                                       maxlength="30" list="listaRoles" placeholder="Ej. Duelista" autocomplete="off">
+                                <datalist id="listaRoles"></datalist>
+                            </div>
+                            <p class="help is-danger" data-error="role"></p>
+                        </div>
+ 
+                        <div class="field">
+                            <label class="label" for="campo-difficulty">Dificultad (1 a 5)</label>
+                            <div class="control">
+                                <input id="campo-difficulty" name="difficulty" class="input" type="text"
+                                       inputmode="numeric" maxlength="1" placeholder="1 - 5" autocomplete="off">
+                            </div>
+                            <p class="help is-danger" data-error="difficulty"></p>
+                        </div>
+ 
+                        <div class="field">
+                            <label class="label" for="campo-description">Descripción</label>
+                            <div class="control">
+                                <textarea id="campo-description" name="description" class="textarea"
+                                          rows="4" maxlength="600"
+                                          placeholder="Cuenta la historia y habilidades del personaje (mínimo 20 caracteres)"></textarea>
+                            </div>
+                            <p class="help is-danger" data-error="description"></p>
+                        </div>
+ 
+                        <div class="field">
+                            <label class="label" for="campo-image">URL de la imagen</label>
+                            <div class="control">
+                                <input id="campo-image" name="image" class="input" type="text"
+                                       placeholder="https://sitio.com/personaje.webp" autocomplete="off">
+                            </div>
+                            <p class="help is-danger" data-error="image"></p>
+                        </div>
+                    </form>
+                </section>
+ 
+                <footer class="modal-card-foot">
+                    <button id="btnGuardarForm" class="button is-primary" type="submit" form="formHeroe">Guardar héroe</button>
+                    <button id="cancelarFormulario" class="button" type="button">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+
+<!-- Eliminar héroe -->
+ 
+        <div id="modalConfirmar" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="max-width: 440px;">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Eliminar héroe</p>
+                    <button id="cerrarConfirmar" class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                    <p>¿Estás seguro de que quieres eliminar a <strong id="nombreEliminar"></strong>?</p>
+                    <p class="help mt-2">Dejará de aparecer en la colección.</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button id="confirmarEliminar" class="button is-danger" type="button">Sí, eliminar</button>
+                    <button id="cancelarEliminar" class="button" type="button">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+
+<!-- Restablecer colección -->
+
+        <div id="modalRestablecer" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="max-width: 460px;">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Restablecer colección</p>
+                    <button id="cerrarRestablecer" class="delete" type="button" aria-label="Cerrar"></button>
+                </header>
+                <section class="modal-card-body">
+                    <p>¿Seguro que quieres restablecer la colección?</p>
+                    <p class="help mt-2">
+                        Se perderán los héroes que agregaste, las ediciones y las eliminaciones,
+                        y volverán los héroes originales. Esta acción no se puede deshacer.
+                    </p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button id="confirmarRestablecer" class="button is-danger" type="button">Sí, restablecer</button>
+                    <button id="cancelarRestablecer" class="button" type="button">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+
+<!-- Pie de Pagina -->
+
+     <section class="section has-background-black mt-6">
+        <footer class="Footer has-background-black has-text-white">
+            <div class="content has-text-centered">
+                <p>
+                    <span class="has-text-weight-bold">Colección de Heroes</span> — Página informativa creada con 
+                    <span class="has-text-info has-text-weight-bold">Bulma CSS, HTML5 y Javascript</span>.
+                </p>
+                <p>
+                    Todas las imagenes e información sobre los heroes fue recolectada de 
+                    <a href="https://marvelrivals.gg/heroes/">Marvel Rivals</a>.
+                </p>
+                <p>
+                    Esta pagina web fue creada con fines educativos como parte de un proyecto parcial en la carrera de Animacion Digital.
+                </p>
+            </div>
+        </footer>
+     </section>
+
+        <script src="JS/script.js"></script>
+    </body>
+</html>
