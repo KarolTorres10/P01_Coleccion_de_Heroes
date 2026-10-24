@@ -103,6 +103,23 @@ const escapar = (texto) =>
 
 const estrellas = (n) => "★".repeat(n) + "☆".repeat(Math.max(0, 5 - n));
 
+//Imagen de Respaldo
+
+const IMAGEN_RESPALDO = "data:image/svg+xml;utf8," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">' +
+  '<rect width="100%" height="100%" fill="#dbdbdb"/>' +
+  '<text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" ' +
+  'font-family="sans-serif" font-size="28" fill="#4a4a4a">Sin imagen</text></svg>'
+);
+document.addEventListener("error", (e) => {
+  const img = e.target;
+  if (img.tagName === "IMG" && img.closest("#mainContainer, #modalContenido") && !img.dataset.respaldo) {
+    img.dataset.respaldo = "1";
+    img.src = IMAGEN_RESPALDO;
+  }
+}, true);
+
+
 // Scroll bloqueado
 
 function actualizarScroll() {
