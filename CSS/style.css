@@ -35,8 +35,12 @@
 
 .heroe-card {
   cursor: pointer;
-  height: 100%;
   transition: transform .15s, box-shadow .15s;
+}
+@media (min-width: 769px) {
+  .heroe-card {
+    height: 100%;
+  }
 }
 .heroe-card:hover,
 .heroe-card:focus-visible {
